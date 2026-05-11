@@ -1,0 +1,13 @@
+# Core runtime dependencies
+PyYAML>=6.0
+numpy>=1.21
+opencv-python>=4.5
+
+# MMPose stack (versions pinned to the 1.x / mmengine-based branch)
+mmengine>=0.8.0
+mmcv>=2.0.0
+mmdet>=3.0.0
+mmpose>=1.2.0
+
+# Development / testing
+pytest>=8.0.0

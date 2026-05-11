@@ -1,0 +1,26 @@
+step: step_b_pose2d
+input:
+  video_path: data/raw/input.mp4
+  image_dir: null
+runtime:
+  device: cuda:0
+  det_model: null
+  det_weights: null
+  pose2d_model: human
+  pose2d_weights: null
+  bbox_thr: 0.3
+  kpt_thr: 0.6
+  show_progress: true
+postprocess:
+  confidence_threshold: 0.6
+  recovery:
+    enabled: false
+    confidence_threshold: 0.3
+    infer_kpt_thr: 0.2
+    target_joints: []
+    max_recover_per_frame: 4
+output:
+  keypoints_jsonl: data/interim/step_b/pose2d_keypoints.jsonl
+  keypoints_csv: outputs/tables/pose2d_keypoints.csv
+  summary_json: data/interim/step_b/pose2d_summary.json
+  vis_video_path: outputs/videos/step_b_pose2d_vis.mp4

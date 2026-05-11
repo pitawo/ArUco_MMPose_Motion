@@ -1,0 +1,17 @@
+step: step_e_smoothing
+# 未実装。docs/DESIGN.md §STEP E 参照。
+input:
+  pose3d_jsonl: data/interim/step_d/pose3d_world.jsonl
+smoothing:
+  method: savgol            # savgol | one_euro | kalman
+  savgol:
+    window_length: 7
+    polyorder: 2
+  one_euro:
+    min_cutoff: 1.0
+    beta: 0.0
+  gap_filling:
+    enabled: true
+    max_gap_frames: 5
+output:
+  pose3d_smoothed_jsonl: outputs/pose3d_smoothed.jsonl

@@ -1,0 +1,4 @@
+project_name: mmpose_3d_pose_A
+seed: 42
+output_root: outputs
+interim_root: data/interim

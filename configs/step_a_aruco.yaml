@@ -1,0 +1,22 @@
+step: step_a_aruco_calibration
+# 未実装。docs/DESIGN.md §STEP A 参照。
+input:
+  # カメラ毎のソース動画（同一シーン、固定カメラ）
+  cameras:
+    - id: cam01
+      video_path: data/raw/cam01.mp4
+      intrinsics_path: configs/intrinsics/cam01.npz
+    - id: cam02
+      video_path: data/raw/cam02.mp4
+      intrinsics_path: configs/intrinsics/cam02.npz
+aruco:
+  dictionary: DICT_6X6_250
+  marker_length_mm: 42.0
+  # マーカー検出パラメータ
+  detector_params:
+    adaptiveThreshWinSizeMin: 3
+    adaptiveThreshWinSizeMax: 23
+    adaptiveThreshWinSizeStep: 10
+output:
+  world_transforms: data/interim/step_a/world_transforms.npz
+  detection_log: data/interim/step_a/aruco_detection.jsonl

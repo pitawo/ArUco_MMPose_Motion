@@ -1,0 +1,22 @@
+step: step_d_triangulation
+# 未実装。docs/DESIGN.md §STEP D 参照。
+input:
+  pose2d_jsonl_paths:
+    cam01: data/interim/step_b/cam01_pose2d_keypoints.jsonl
+    cam02: data/interim/step_b/cam02_pose2d_keypoints.jsonl
+  world_transforms: data/interim/step_a/world_transforms.npz
+  sync_map: data/interim/step_c/sync_map.csv
+triangulation:
+  method: linear_dlt        # linear_dlt | ransac | nonlinear
+  min_cameras: 2
+  reproj_error:
+    global_thresh_px: 8.0
+    joint_thresh_px: null   # 関節別閾値 (npz path or null)
+    camera_pair_thresh_px: null
+  ransac:
+    enabled: false
+    iterations: 100
+    inlier_thresh_px: 5.0
+output:
+  pose3d_world_jsonl: data/interim/step_d/pose3d_world.jsonl
+  pose3d_summary_json: data/interim/step_d/pose3d_summary.json

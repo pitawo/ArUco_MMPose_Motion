@@ -1,0 +1,14 @@
+step: step_c_sync
+# 未実装。docs/DESIGN.md §STEP C 参照。
+input:
+  cameras:
+    - id: cam01
+      video_path: data/raw/cam01.mp4
+    - id: cam02
+      video_path: data/raw/cam02.mp4
+sync:
+  mode: timestamp  # timestamp | xcorr | manual
+  reference_camera: cam01
+  manual_offsets_ms: {}  # mode=manual のとき: {cam02: 0, cam03: 17, ...}
+output:
+  sync_map: data/interim/step_c/sync_map.csv
