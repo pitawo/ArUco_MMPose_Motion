@@ -20,6 +20,7 @@ REQUIRED = [
     ("mmcv", None),
     ("mmengine", None),
     ("yaml", None),
+    ("pytest", None),
 ]
 
 

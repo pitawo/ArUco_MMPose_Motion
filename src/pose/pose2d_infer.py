@@ -17,7 +17,7 @@ class Pose2DConfig:
 
 
 class Pose2DInferencer:
-    """Thin wrapper around MMPoseInferencer for STEP1 pipeline."""
+    """Thin wrapper around MMPoseInferencer for STEP B pipeline."""
 
     def __init__(self, cfg: Pose2DConfig) -> None:
         self.cfg = cfg
@@ -28,7 +28,7 @@ class Pose2DInferencer:
             from mmpose.apis import MMPoseInferencer
         except ImportError as exc:
             raise RuntimeError(
-                "mmpose is not installed. Install mmpose/mmdet to run STEP1 inference."
+                "mmpose is not installed. Install mmpose/mmdet to run STEP B inference."
             ) from exc
 
         return MMPoseInferencer(

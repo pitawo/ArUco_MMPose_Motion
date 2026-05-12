@@ -54,3 +54,15 @@ def test_step_d_placeholder_raises() -> None:
     from src.pipeline.step_d_triangulation import triangulate_3d_world
     with pytest.raises(NotImplementedError):
         triangulate_3d_world()
+
+
+def test_step_c_placeholder_raises() -> None:
+    from src.pipeline.step_c_sync import synchronize_cameras
+    with pytest.raises(NotImplementedError):
+        synchronize_cameras()
+
+
+def test_step_e_placeholder_raises() -> None:
+    from src.pipeline.step_e_smoothing import smooth_3d_world
+    with pytest.raises(NotImplementedError):
+        smooth_3d_world()

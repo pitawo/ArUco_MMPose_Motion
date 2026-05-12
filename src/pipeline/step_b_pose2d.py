@@ -212,6 +212,7 @@ def run_step_b(config_path: str, inferencer_cls: type[Pose2DInferencer] = Pose2D
                 )
             except StopIteration:
                 logger.warning("Recovery inferencer exhausted before primary inferencer")
+                recovery_iter = None
 
         valid_count = count_valid_keypoints(filtered)
         total_rejected += len(rejected_indices)
