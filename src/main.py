@@ -1,4 +1,4 @@
-"""Entry point for mmpose_3d_pose_aruco pipeline.
+"""Entry point for ArUco_MMPose_Motion pipeline.
 
 Usage:
     python -m src.main --step b --config configs/step_b_pose2d.yaml
@@ -57,7 +57,7 @@ _DEFAULT_CONFIGS: dict[str, str] = {
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="mmpose_3d_pose_aruco entry point")
+    parser = argparse.ArgumentParser(description="ArUco_MMPose_Motion entry point")
     parser.add_argument(
         "--step",
         required=True,
@@ -72,9 +72,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.step == "all":
+        if args.config is not None:
+            parser.error("--config cannot be used with --step all; use each step default config or run steps individually")
         for step_key in ["a", "b", "c", "d", "e"]:
-            cfg = args.config or _DEFAULT_CONFIGS[step_key]
-            _STEP_RUNNERS[step_key](cfg)
+            _STEP_RUNNERS[step_key](_DEFAULT_CONFIGS[step_key])
     else:
         cfg = args.config or _DEFAULT_CONFIGS[args.step]
         _STEP_RUNNERS[args.step](cfg)

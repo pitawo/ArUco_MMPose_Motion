@@ -13,7 +13,7 @@ class FramePacket:
 
 
 def iter_image_files(image_dir: str) -> Iterator[FramePacket]:
-    """Treat sorted images as pseudo-frames for STEP1 dry-run/validation."""
+    """Treat sorted images as pseudo-frames for STEP B dry-run/validation."""
     directory = Path(image_dir)
     for idx, path in enumerate(sorted(directory.glob("*"))):
         if path.suffix.lower() not in {".jpg", ".jpeg", ".png", ".bmp"}:

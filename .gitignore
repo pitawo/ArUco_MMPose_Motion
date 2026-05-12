@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Pipeline artifacts
+data/raw/
+data/interim/
+data/processed/
+outputs/
+configs/intrinsics/
+
+# Editor junk
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db

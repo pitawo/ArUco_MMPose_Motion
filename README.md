@@ -1,8 +1,8 @@
-# mmpose_3d_pose_aruco
+# ArUco_MMPose_Motion
 
 マルチカメラ × ArUco マーカーで絶対座標系の 3D 骨格を復元するパイプライン。
 
-## 状態（2026-05-02）
+## 状態（2026-05-12）
 
 - **v1**：骨組み構築完了（このコミット）
 - **動作可能**：STEP B（2D 姿勢推定）— 既存プロトタイプから移植
@@ -46,7 +46,9 @@ python -m src.main --step b --config configs/step_b_pose2d.yaml
 
 # 未実装（次セッション以降）
 python -m src.main --step a --config configs/step_a_aruco.yaml
+python -m src.main --step c --config configs/step_c_sync.yaml
 python -m src.main --step d --config configs/step_d_triangulation.yaml
+python -m src.main --step e --config configs/step_e_smoothing.yaml
 ```
 
 ## テスト
@@ -60,7 +62,6 @@ python -m pytest tests/test_smoke.py
 1. STEP A 実装（ArUco 外部パラメータ推定）
 2. STEP D 実装（線形 DLT 三角測量）
 3. 同期入力動画でのエンドツーエンド検証
-4. GitHub プライベートリポジトリへの初回 push
 
 ## 既存プロトタイプとの関係
 
